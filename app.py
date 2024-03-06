@@ -25,9 +25,12 @@ def onpredict():
         final = [np.array(feature)]
         op = model.predict(final)
 
+        if op == 1:
+            return render_template("index.html" , output= "You are a diabetic")
+        else:
+            return render_template("index.html" , output = "You are not diabetic")   
 
 
-    return render_template("index.html" , output= op)
 
 
 if __name__ == '__main__':
